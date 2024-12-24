@@ -1,0 +1,115 @@
+{
+    "database": "medkit",
+    "tables": [
+      {
+        "name": "usuarios",
+        "columns": {
+          "usuario_id": "INT AUTO_INCREMENT PRIMARY KEY",
+          "nome": "VARCHAR(255) NOT NULL",
+          "email": "VARCHAR(255) UNIQUE NOT NULL",
+          "senha": "VARCHAR(255) NOT NULL",
+          "data_nascimento": "DATE NOT NULL",
+          "genero": "ENUM('Masculino', 'Feminino', 'Outro') NOT NULL",
+          "telefone": "VARCHAR(20)",
+          "endereco": "VARCHAR(255)",
+          "data_cadastro": "TIMESTAMP DEFAULT CURRENT_TIMESTAMP"
+        }
+      },
+      {
+        "name": "medicamentos",
+        "columns": {
+          "medicamento_id": "INT AUTO_INCREMENT PRIMARY KEY",
+          "nome_comercial": "VARCHAR(255) NOT NULL",
+          "principio_ativo": "VARCHAR(255) NOT NULL",
+          "descricao": "VARCHAR(255)",
+          "dose": "VARCHAR(100)",
+          "via_administracao": "VARCHAR(100)",
+          "forma_farmaceutica": "VARCHAR(100)",
+          "intervalo_horas": "INT",
+          "duracao_tratamento": "INT",
+          "observacoes": "VARCHAR(255)"
+        }
+      },
+      {
+        "name": "prescricoes",
+        "columns": {
+          "prescricao_id": "INT AUTO_INCREMENT PRIMARY KEY",
+          "usuario_id": "INT",
+          "medicamento_id": "INT",
+          "data_inicio": "DATE NOT NULL",
+          "data_fim": "DATE",
+          "hora_uso": "TIME",
+          "lembrete": "BOOLEAN DEFAULT TRUE"
+        },
+        "foreign_keys": {
+          "usuario_id": "REFERENCES usuarios(usuario_id)",
+          "medicamento_id": "REFERENCES medicamentos(medicamento_id)"
+        }
+      },
+      {
+        "name": "exames",
+        "columns": {
+          "exame_id": "INT AUTO_INCREMENT PRIMARY KEY",
+          "usuario_id": "INT",
+          "tipo_exame": "VARCHAR(255) NOT NULL",
+          "data_exame": "DATE NOT NULL",
+          "resultado": "VARCHAR(255)",
+          "observacoes": "VARCHAR(255)",
+          "data_agendamento": "TIMESTAMP DEFAULT CURRENT_TIMESTAMP"
+        },
+        "foreign_keys": {
+          "usuario_id": "REFERENCES usuarios(usuario_id)"
+        }
+      },
+      {
+        "name": "vacinas",
+        "columns": {
+          "vacina_id": "INT AUTO_INCREMENT PRIMARY KEY",
+          "usuario_id": "INT",
+          "vacina_nome": "VARCHAR(255) NOT NULL",
+          "data_vacinacao": "DATE NOT NULL"
+        },
+        "foreign_keys": {
+          "usuario_id": "REFERENCES usuarios(usuario_id)"
+        }
+      },
+      {
+        "name": "alergias",
+        "columns": {
+          "alergia_id": "INT AUTO_INCREMENT PRIMARY KEY",
+          "usuario_id": "INT",
+          "descricao": "VARCHAR(255) NOT NULL",
+          "tipo_alergia": "VARCHAR(100)",
+          "data_registro": "TIMESTAMP DEFAULT CURRENT_TIMESTAMP"
+        },
+        "foreign_keys": {
+          "usuario_id": "REFERENCES usuarios(usuario_id)"
+        }
+      },
+      {
+        "name": "dicas_saude",
+        "columns": {
+          "dica_id": "INT AUTO_INCREMENT PRIMARY KEY",
+          "titulo": "VARCHAR(255) NOT NULL",
+          "descricao": "VARCHAR(255) NOT NULL",
+          "data_postagem": "TIMESTAMP DEFAULT CURRENT_TIMESTAMP"
+        }
+      },
+      {
+        "name": "notificacoes",
+        "columns": {
+          "notificacao_id": "INT AUTO_INCREMENT PRIMARY KEY",
+          "usuario_id": "INT",
+          "tipo": "ENUM('Medicamento', 'Exame', 'Consulta', 'Outro') NOT NULL",
+          "mensagem": "VARCHAR(255) NOT NULL",
+          "data_evento": "DATETIME NOT NULL",
+          "data_notificacao": "TIMESTAMP DEFAULT CURRENT_TIMESTAMP",
+          "lido": "BOOLEAN DEFAULT FALSE"
+        },
+        "foreign_keys": {
+          "usuario_id": "REFERENCES usuarios(usuario_id)"
+        }
+      }
+    ]
+  }
+  
