@@ -16,8 +16,30 @@ body {
     height: 100vh;
 }
 
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #87ceeb;
+    color: black;
+    padding: 10px 20px 30px;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    width: 260px; /* Define a largura do nav */
+    margin: 0 auto; /* Centraliza o nav */
+}
+
+nav h1 {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+    flex: 1;
+    text-align: center;
+}
+
 /* Cabeçalho */
 header {
+    margin-top: 100px;
     margin-bottom: 20px;
 }
 
