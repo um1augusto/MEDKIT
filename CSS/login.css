@@ -22,12 +22,15 @@ nav {
     justify-content: center;
     background-color: #87ceeb;
     color: black;
-    padding: 10px 20px 30px;
-    border-bottom-left-radius: 50px;
-    border-bottom-right-radius: 50px;
-    width: 260px; /* Define a largura do nav */
-    margin: 0 auto; /* Centraliza o nav */
+    padding: 20px 20px;
+    border-bottom-left-radius: 90%;
+    border-bottom-right-radius: 90%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 300px; 
+    height: auto; 
+    margin: 0 auto; 
 }
+
 
 nav h1 {
     font-size: 24px;
@@ -39,7 +42,7 @@ nav h1 {
 
 /* Cabeçalho */
 header {
-    margin-top: 100px;
+    margin-top: 120px;
     margin-bottom: 20px;
 }
 
