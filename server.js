@@ -24,7 +24,11 @@ const authenticateToken = (req, res, next) => {
     });
 };
 
-// Endpoint de login
+app.post('/cadastro', async (req, res)=>{
+
+
+});
+
 app.post('/login', async (req, res) => {
     const { cpf, senha } = req.body;
 
@@ -43,6 +47,7 @@ app.post('/login', async (req, res) => {
 
         // Verifica se a senha está correta
         const passwordMatch = await bcrypt.compare(senha, user.senha);
+        
         if (!passwordMatch) {
             return res.status(400).json({ success: false, message: 'Usuário ou senha incorretos!' });
         }
