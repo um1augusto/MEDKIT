@@ -26,7 +26,8 @@
     border-bottom-right-radius: 150%;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     width: 100%;
-    margin-top: -14%;
+    position: fixed;
+    top: 0;
   }
   
   nav h2 {
