@@ -24,9 +24,23 @@ const authenticateToken = (req, res, next) => {
     });
 };
 
-app.post('/cadastro', async (req, res)=>{
+app.post('/cadastro', async (req, res) => {
+    const { nome, cpf, senha, dataNascimento, genero, email, telefone, endereco } = req.body;
 
+    try {
+        const hashedPassword = await bcrypt.hash(senha, 10);
 
+        db.query(
+            'INSERT INTO usuarios (cpf, senha, nome, dataNascimento, genero, email, telefone, endereco) VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
+            [cpf, hashedPassword, nome, dataNascimento, genero, email, telefone, endereco],
+            (err, result) => {
+                if (err) return res.status(500).send('Erro ao registrar usuário.');
+                res.sendStatus(201);
+            }
+        );
+    } catch (error) {
+        res.status(500).send('Erro interno do servidor.');
+    }
 });
 
 app.post('/login', async (req, res) => {
@@ -57,6 +71,8 @@ app.post('/login', async (req, res) => {
         res.json({ success: true, message: 'Login bem-sucedido!', token });
     });
 });
+
+
 
 app.listen(3000, () => {
     console.log('Servidor rodando na porta 3000');
