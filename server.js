@@ -31,14 +31,18 @@ app.post('/cadastro', async (req, res) => {
         const hashedPassword = await bcrypt.hash(senha, 10);
 
         db.query(
-            'INSERT INTO usuarios (cpf, senha, nome, dataNascimento, genero, email, telefone, endereco) VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
+            'INSERT INTO usuarios (cpf, senha, nome, data_nascimento, genero, email, telefone, endereco_completo) VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
             [cpf, hashedPassword, nome, dataNascimento, genero, email, telefone, endereco],
             (err, result) => {
-                if (err) return res.status(500).send('Erro ao registrar usuário.');
+                if (err) {
+                    console.log(err); // LOG DO ERRO NO CONSOLE
+                    return res.status(500).send('Erro ao registrar usuário.');
+                }
                 res.sendStatus(201);
             }
         );
     } catch (error) {
+        console.log(error); // LOG DO ERRO NO CONSOLE
         res.status(500).send('Erro interno do servidor.');
     }
 });

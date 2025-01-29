@@ -11,29 +11,33 @@ document.getElementById('form').addEventListener('submit', async (e) => {
     const endereco = document.getElementById('endereco').value;
     const message = document.getElementById('message');
 
-    if (!email || !senha) {
-        message.textContent = 'Por favor, preencha todos os campos.';
-        return;
-    }
-
-    message.textContent = 'Cadastro efetuado...';
+    message.textContent = 'Processando cadastro...';
+    message.style.color = 'blue';
 
     try {
         const response = await fetch('http://localhost:3000/cadastro', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ nome, cpf, senha, dataNascimento, genero, email, telefone, endereco })
+            body: JSON.stringify({ nome, cpf, senha, dataNascimento, genero, email, telefone, endereco }),
         });
 
         if (response.ok) {
-            const data = await response.json();
-            localStorage.setItem('token', data.token);
-            window.location.href = 'login.html';
+            message.textContent = 'Cadastro efetuado com sucesso! Redirecionando...';
+            message.style.color = 'green';
+
+            // Limpa o formulário
+            document.getElementById('form').reset();
+
+            setTimeout(() => {
+                window.location.href = 'login.html';
+            }, 3000);
         } else {
             const errorMessage = await response.text();
-            message.textContent = errorMessage;
+            message.textContent = `Erro: ${errorMessage}`;
+            message.style.color = 'red';
         }
     } catch (error) {
-        message.textContent = 'Erro ao fazer o cadastro. Tente novamente.';
+        message.textContent = 'Erro ao conectar com o servidor. Tente novamente.';
+        message.style.color = 'red';
     }
 });

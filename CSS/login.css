@@ -75,6 +75,19 @@ label {
     font-size: 20px;
 }
 
+#cpfLabel{
+    text-align: left;
+}
+
+#senhaLabel{
+    text-align: left;
+}
+
+#entrar{
+    text-align: right;
+}
+
+
 input {
     margin-bottom: 15px;
     padding: 10px;
@@ -84,7 +97,14 @@ input {
     font-size: 18px;
 }
 
+#entrar {
+    text-align: right;
+}
+
 button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     padding: 10px;
     background-color: #4682B4;
     color: white;
@@ -94,7 +114,15 @@ button {
     cursor: pointer;
     margin-top: 10px;
     transition: 0.3s;
+    width: 24%;
+    margin-left: auto;
+    overflow: hidden; 
 }
+
+button:hover {
+    background-color: #5A9BD5;
+}
+
 
 button:hover {
     background-color: #5A9BD5;
