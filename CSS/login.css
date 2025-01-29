@@ -1,149 +1,134 @@
 /* Reset básico */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    margin: 0; /* Remove as margens padrão de todos os elementos */
+    padding: 0; /* Remove o preenchimento padrão de todos os elementos */
+    box-sizing: border-box; /* Garante que o padding e a borda sejam incluídos no cálculo da largura e altura dos elementos */
 }
 
 /* Estilo do body */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    overflow: hidden;
+    font-family: Arial, sans-serif; /* Define a fonte padrão como Arial, com sans-serif como fallback */
+    background-color: #f0f0f0; /* Define o fundo da página como um tom claro de cinza */
+    display: flex; /* Usa o modelo Flexbox para organizar os elementos filhos do body */
+    flex-direction: column; /* Alinha os elementos filhos do body em uma coluna */
+    align-items: center; /* Centraliza os elementos filhos horizontalmente */
+    justify-content: center; /* Centraliza os elementos filhos verticalmente */
+    height: 100vh; /* Define a altura do body para 100% da altura da tela */
+    overflow: hidden; /* Impede que o conteúdo transborde além dos limites da tela */
 }
 
+/* Navegação */
 nav {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #87ceeb;
-    color: black;
-    padding: 30px 20px;
-    border-bottom-left-radius: 150%;
-    border-bottom-right-radius: 150%;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    position: fixed;
-    top: 0;
+    display: flex; /* Utiliza Flexbox para organizar os itens dentro do nav */
+    align-items: center; /* Alinha os itens do nav verticalmente no centro */
+    justify-content: center; /* Centraliza os itens do nav horizontalmente */
+    background-color: #87ceeb; /* Define a cor de fundo do nav como azul claro */
+    color: black; /* Define a cor do texto dentro do nav como preto */
+    padding: 30px 20px; /* Define o preenchimento interno do nav (30px vertical, 20px horizontal) */
+    border-bottom-left-radius: 150%; /* Arredonda o canto inferior esquerdo com um grande raio */
+    border-bottom-right-radius: 150%; /* Arredonda o canto inferior direito com um grande raio */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra sutil ao nav */
+    width: 100%; /* Faz o nav ocupar 100% da largura da tela */
+    position: fixed; /* Define o nav como fixo no topo da tela */
+    top: 0; /* Alinha o nav no topo da tela */
 }
-
 
 nav h1 {
-    font-size: 24px;
-    font-weight: bold;
-    margin: 0;
-    flex: 1;
-    text-align: center;
+    font-size: 24px; /* Define o tamanho da fonte para o título no nav */
+    font-weight: bold; /* Define o peso da fonte como negrito */
+    margin: 0; /* Remove a margem do título */
+    flex: 1; /* Faz com que o título ocupe todo o espaço disponível dentro do nav */
+    text-align: center; /* Centraliza o texto do título */
 }
 
 /* Cabeçalho */
 header {
-    margin-top: 100px;
-    margin-bottom: 60px;
+    margin-top: 10px; /* Adiciona uma margem superior ao cabeçalho */
+    margin-bottom: 50px; /* Adiciona uma margem inferior ao cabeçalho */
+    height: 10vh; /* Define a altura do cabeçalho para 10% da altura da tela */
 }
 
 header h1 {
-    font-size: 24px;
-    color: black;
-    text-align: center;
+    font-size: 24px; /* Define o tamanho da fonte para o título do cabeçalho */
+    color: black; /* Define a cor do texto como preto */
+    text-align: center; /* Centraliza o texto do título */
 }
 
 /* Container do formulário */
 .container {
-    background-color: #87CEEB;
-    padding: 20px;
-    border-radius: 20px;
-    width: 90%;
-    max-width: 320px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
+    background-color: #87CEEB; /* Define a cor de fundo do container como azul claro */
+    padding: 20px; /* Adiciona 20px de preenchimento interno ao container */
+    border-radius: 20px; /* Arredonda os cantos do container com raio de 20px */
+    width: 90%; /* Define a largura do container como 90% da largura da tela */
+    max-width: 320px; /* Limita a largura máxima do container a 320px */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra suave de 2px de deslocamento e 10px de difusão */
+    text-align: center; /* Centraliza o texto e os elementos dentro do container */
 }
 
+/* Formulário */
 form {
-    display: flex;
-    flex-direction: column;
+    display: flex; /* Utiliza Flexbox para organizar os itens dentro do formulário */
+    flex-direction: column; /* Organiza os elementos do formulário em uma coluna */
 }
 
+/* Rótulos (Labels) */
 label {
-    margin-bottom: 5px;
-    color: black;
-    font-size: 20px;
+    margin-bottom: 5px; /* Adiciona uma margem inferior de 5px ao rótulo */
+    color: black; /* Define a cor do texto do rótulo como preto */
+    font-size: 20px; /* Define o tamanho da fonte do rótulo */
 }
 
-#cpfLabel{
-    text-align: left;
-}
-
-#senhaLabel{
-    text-align: left;
-}
-
-#entrar{
-    text-align: right;
-}
-
-
+/* Campos de entrada (Inputs) */
 input {
-    margin-bottom: 15px;
-    padding: 10px;
-    border: none;
-    border-bottom: 2px solid black;
-    background-color: transparent;
-    font-size: 18px;
+    margin-bottom: 15px; /* Adiciona uma margem inferior de 15px aos campos de entrada */
+    padding: 10px; /* Adiciona 10px de preenchimento interno aos campos de entrada */
+    border: none; /* Remove a borda padrão dos campos de entrada */
+    border-bottom: 2px solid black; /* Adiciona uma borda inferior de 2px e cor preta aos campos de entrada */
+    background-color: transparent; /* Define o fundo do campo de entrada como transparente */
+    font-size: 18px; /* Define o tamanho da fonte dos campos de entrada */
 }
 
-#entrar {
-    text-align: right;
-}
-
+/* Botões */
 button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 10px;
-    background-color: #4682B4;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    margin-top: 10px;
-    transition: 0.3s;
-    width: 24%;
-    margin-left: auto;
-    overflow: hidden; 
+    display: flex; /* Utiliza Flexbox para organizar os itens dentro do botão */
+    align-items: center; /* Alinha os itens do botão verticalmente no centro */
+    justify-content: center; /* Centraliza os itens do botão horizontalmente */
+    padding: 10px; /* Adiciona 10px de preenchimento interno ao botão */
+    background-color: #4682B4; /* Define o fundo do botão como azul escuro */
+    color: white; /* Define a cor do texto do botão como branco */
+    border: none; /* Remove a borda padrão do botão */
+    border-radius: 5px; /* Arredonda os cantos do botão com raio de 5px */
+    font-size: 16px; /* Define o tamanho da fonte do botão */
+    cursor: pointer; /* Altera o cursor para uma mãozinha quando o usuário passar o mouse sobre o botão */
+    margin-top: 10px; /* Adiciona uma margem superior de 10px ao botão */
+    transition: 0.3s; /* Adiciona uma transição suave de 0.3 segundos para o efeito de hover */
+    width: 24%; /* Define a largura do botão como 24% do container */
+    margin-left: auto; /* Alinha o botão à direita do container */
+    overflow: hidden; /* Esconde qualquer conteúdo que ultrapasse o limite do botão */
 }
 
 button:hover {
-    background-color: #5A9BD5;
+    background-color: #5A9BD5; /* Altera a cor de fundo do botão para um tom mais claro de azul quando o mouse está sobre ele */
 }
 
-
-button:hover {
-    background-color: #5A9BD5;
-}
-
+/* Mensagens de erro */
 #message {
-    margin-top: 10px;
-    font-size: 14px;
-    color: red;
-    font-weight: bold;
-    text-align: center;
+    margin-top: 10px; /* Adiciona uma margem superior de 10px à mensagem de erro */
+    font-size: 14px; /* Define o tamanho da fonte da mensagem de erro */
+    color: red; /* Define a cor da mensagem de erro como vermelha */
+    font-weight: bold; /* Define o peso da fonte da mensagem de erro como negrito */
+    text-align: center; /* Centraliza o texto da mensagem de erro */
 }
 
+/* Links (Cadastro e Esqueci a Senha) */
 #cadastro {
-    color: black;
-    margin-top: 3%;
-    text-decoration: none;
+    color: black; /* Define a cor do link de cadastro como preta */
+    margin-top: 3%; /* Adiciona uma margem superior de 3% ao link de cadastro */
+    text-decoration: none; /* Remove o sublinhado padrão do link */
 }
 
 #esqueciSenha {
-    color: black;
-    margin-top: 1%;
-    text-decoration: none;
+    color: black; /* Define a cor do link de "esqueci senha" como preta */
+    margin-top: 1%; /* Adiciona uma margem superior de 1% ao link de "esqueci senha" */
+    text-decoration: none; /* Remove o sublinhado padrão do link */
 }

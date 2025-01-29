@@ -1,95 +1,113 @@
+/* Reset básico: remove margens e preenchimentos padrão e define o box-sizing */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  /* Estilo do body */
-  body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-  }
-  
-  nav {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #87ceeb;
-    color: black;
-    padding: 30px 20px;
-    border-bottom-left-radius: 150%;
-    border-bottom-right-radius: 150%;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    position: fixed;
-    top: 0;
-  }
-  
-  nav h2 {
-    font-size: 24px;
-    font-weight: bold;
-    margin: 0;
-    text-align: center;
-  }
-  
-  /* Cabeçalho */
-  header {
-    margin-top: 15%;
-    margin-bottom: 60px;
-  }
-  
-  header h1 {
-    font-size: 24px;
-    color: black;
-    text-align: center;
-  }
-  
-  /* Container do formulário */
+  margin: 0; /* Remove as margens de todos os elementos */
+  padding: 0; /* Remove o preenchimento de todos os elementos */
+  box-sizing: border-box; /* Define o box-sizing para border-box, o que significa que padding e border são incluídos no cálculo da largura/altura */
+}
+
+/* Estilo do body: configura o layout básico da página */
+body {
+  font-family: Arial, sans-serif; /* Define a fonte do corpo do texto como Arial, com uma fonte alternativa (sans-serif) */
+  background-color: #f0f0f0; /* Define o fundo da página como um tom claro de cinza */
+  display: flex; /* Define o layout do body como flexbox */
+  flex-direction: column; /* Organiza os elementos internos em uma coluna */
+  align-items: center; /* Alinha os itens ao centro horizontalmente */
+  padding: 20px; /* Adiciona preenchimento de 20px ao redor do conteúdo */
+}
+
+/* Navegação */
+nav {
+  display: flex; /* Utiliza o modelo Flexbox para alinhar os itens da navegação */
+  align-items: center; /* Alinha os itens verticalmente no centro */
+  justify-content: center; /* Centraliza os itens horizontalmente */
+  background-color: #87ceeb; /* Define o fundo da navegação como azul claro */
+  color: black; /* Define a cor do texto como preto */
+  padding: 30px 20px; /* Adiciona preenchimento de 30px na vertical e 20px na horizontal */
+  border-bottom-left-radius: 150%; /* Arredonda os cantos inferiores esquerdo da navegação */
+  border-bottom-right-radius: 150%; /* Arredonda os cantos inferiores direito da navegação */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra suave abaixo da navegação */
+  width: 100%; /* Define a largura da navegação para ocupar toda a largura da tela */
+  position: fixed; /* Define a navegação como fixa no topo da página */
+  top: 0; /* Posiciona a navegação no topo da página */
+}
+
+/* Cabeçalho */
+header {
+  margin-top: 15vh; /* Define uma margem superior de 15% da altura da tela */
+  text-align: center; /* Centraliza o texto do título do cabeçalho */
+}
+
+header h1 {
+  font-size: 22px; /* Define o tamanho da fonte do título como 22px */
+  color: black; /* Define a cor do título como preto */
+}
+
+/* Container do formulário */
+.container {
+  background-color: #87CEEB; /* Define a cor de fundo do container como azul claro */
+  padding: 15px; /* Adiciona 15px de preenchimento interno ao container */
+  border-radius: 10px; /* Arredonda os cantos do container com raio de 10px */
+  width: 100%; /* Define a largura do container para 100% da largura disponível */
+  max-width: 400px; /* Limita a largura máxima do container a 400px */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra suave ao redor do container */
+  margin: 10vh; /* Adiciona uma margem de 10% da altura da tela ao redor do container */
+}
+
+/* Estilo do formulário */
+form {
+  display: flex; /* Utiliza o modelo Flexbox para organizar os elementos internos do formulário */
+  flex-direction: column; /* Organiza os itens do formulário em uma coluna */
+}
+
+/* Rótulos */
+label {
+  margin-bottom: 5px; /* Adiciona uma margem inferior de 5px aos rótulos */
+  color: black; /* Define a cor do texto dos rótulos como preto */
+  font-size: 16px; /* Define o tamanho da fonte dos rótulos como 16px */
+}
+
+/* Campos de entrada e select */
+input, select {
+  margin-bottom: 10px; /* Adiciona uma margem inferior de 10px aos campos de entrada e select */
+  padding: 8px; /* Adiciona 8px de preenchimento interno aos campos */
+  border: 1px solid white; /* Define uma borda branca e fina para os campos */
+  background-color: white; /* Define o fundo dos campos como branco */
+  font-size: 16px; /* Define o tamanho da fonte dos campos como 16px */
+  border-radius: 5px; /* Arredonda os cantos dos campos com raio de 5px */
+  width: 100%; /* Define a largura dos campos para 100% do container */
+}
+
+/* Estilo do botão */
+button {
+  display: flex; /* Utiliza o modelo Flexbox para centralizar o conteúdo dentro do botão */
+  align-items: center; /* Alinha os itens do botão verticalmente no centro */
+  justify-content: center; /* Centraliza os itens do botão horizontalmente */
+  padding: 10px; /* Adiciona 10px de preenchimento interno ao botão */
+  background-color: #4682B4; /* Define a cor de fundo do botão como azul escuro */
+  color: white; /* Define a cor do texto do botão como branco */
+  border: none; /* Remove a borda padrão do botão */
+  border-radius: 5px; /* Arredonda os cantos do botão com raio de 5px */
+  font-size: 16px; /* Define o tamanho da fonte do botão como 16px */
+  cursor: pointer; /* Altera o cursor para uma mãozinha ao passar o mouse sobre o botão */
+  margin-top: 10px; /* Adiciona uma margem superior de 10px ao botão */
+  transition: 0.3s; /* Adiciona uma transição suave de 0.3 segundos para o efeito de hover */
+  width: 24%; /* Define a largura do botão como 24% do container */
+  margin-left: auto; /* Alinha o botão à direita do container */
+  margin-right: auto; /* Alinha o botão à esquerda do container, garantindo que ele fique centralizado */
+  overflow: hidden; /* Garante que o conteúdo que ultrapasse os limites do botão seja ocultado */
+}
+
+button:hover {
+  background-color: #5A9BD5; /* Altera a cor do botão quando o mouse passa sobre ele */
+}
+
+/* Estilos para telas maiores que 768px */
+@media (min-width: 768px) {
   .container {
-    background-color: #87CEEB;
-    padding: 20px;
-    border-radius: 20px;
-    width: 300px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    max-width: 350px; /* Reduz a largura máxima do container para 350px em telas maiores */
   }
-  
-  form {
-    display: flex;
-    flex-direction: column;
+
+  header h1 {
+    font-size: 24px; /* Aumenta o tamanho da fonte do título no cabeçalho para 24px em telas maiores */
   }
-  
-  label {
-    margin-bottom: 5px;
-    color: black;
-    font-size: 20px;
-  }
-  
-  /* Estilo para os campos de entrada */
-  input, select {
-    margin-bottom: 15px;
-    padding: 10px;
-    border: 1px solid white; /* Borda branca */
-    background-color: white; /* Fundo branco */
-    font-size: 18px;
-    border-radius: 5px;
-  }
-  
-  button {
-    padding: 10px;
-    background-color: #4682B4;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    margin-top: 10px;
-  }
-  
-  button:hover {
-    background-color: #5A9BD5;
-  }
+}
