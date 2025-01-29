@@ -50,6 +50,8 @@ app.post('/cadastro', async (req, res) => {
 app.post('/login', async (req, res) => {
     const { cpf, senha } = req.body;
 
+    console.log('Tentativa de login com CPF:', cpf);
+
     // Busca o usuário pelo CPF
     const query = 'SELECT * FROM usuarios WHERE cpf = ?';
     db.query(query, [cpf], async (err, results) => {

@@ -1,28 +1,40 @@
 document.getElementById('form').addEventListener('submit', async (e) => {
     e.preventDefault(); // Previne o envio padrão do formulário
 
+    console.log('Formulário enviado!'); // DEBUG
+
     const cpf = document.getElementById('cpf').value;
     const senha = document.getElementById('senha').value;
     const message = document.getElementById('message');
 
-    message.textContent = 'Fazendo login...'; // Mensagem de carregamento
+    console.log('CPF:', cpf); // DEBUG
+    console.log('Senha:', senha); // DEBUG
+
+    if (!cpf || !senha) {
+        message.textContent = 'Preencha todos os campos!';
+        return;
+    }
+
+    message.textContent = 'Fazendo login...';
 
     try {
         const response = await fetch('http://localhost:3000/login', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ cpf, senha }) // Envia CPF e senha para o servidor
+            body: JSON.stringify({ cpf, senha }) 
         });
 
-        if (response.ok) {
-            const data = await response.json();
-            localStorage.setItem('token', data.token); // Armazena o token no localStorage
+        const data = await response.json();
+        console.log('Resposta do servidor:', data);
+
+        if (response.ok && data.success) {
+            localStorage.setItem('token', data.token);
             window.location.href = 'menu.html'; // Redireciona para a página do usuário
         } else {
-            const errorMessage = await response.text();
-            message.textContent = errorMessage; // Exibe a mensagem de erro
+            message.textContent = data.message || 'Erro ao fazer login';
         }
     } catch (error) {
-        message.textContent = 'Erro ao fazer login. Tente novamente.'; // Mensagem de erro em caso de falha na requisição
+        console.error('Erro na requisição:', error);
+        message.textContent = 'Erro ao fazer login. Tente novamente.';
     }
 });

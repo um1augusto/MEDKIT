@@ -5,44 +5,59 @@ body {
     background-color: #f8f9fa;
     text-align: center;
 }
-.menu-header {
-    background-color: #6eb5e1;
-    padding: 20px;
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #87ceeb;
+    color: black;
+    padding: 30px 20px;
+    border-bottom-left-radius: 150%;
+    border-bottom-right-radius: 150%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    position: fixed;
+    top: 0;
+}
+
+nav h1 {
     font-size: 24px;
     font-weight: bold;
-    text-transform: uppercase;
-    font-style: italic;
+    margin: 0;
+    flex: 1;
+    text-align: center;
 }
-.menu-header .icon {
-    float: right;
-    font-size: 24px;
-    margin-right: 20px;
-}
-.menu-container {
+
+.container {
     display: flex;
     justify-content: space-between;
     padding: 20px;
-    margin-top: 20px;
-    gap: 10px; /* Espaço entre as colunas */
+    margin-top: 20vh;
+    gap: 10px;
 }
+
 .menu-group {
     display: flex;
     flex-direction: column;
-    gap: 10px; /* Espaço entre os itens verticalmente */
+    gap: 10px;
 }
+
 .menu-item {
-    width: 120px; /* Tamanho dos itens ajustado */
-    height: 120px; /* Tamanho dos itens ajustado */
+    width: 120px;
+    height: 120px;
     background-color: white;
     border-radius: 10px;
     box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
     padding: 10px;
     text-align: center;
 }
+
 .menu-item img {
-    width: 50px; /* Imagens ajustadas para um tamanho proporcional */
-    height: 50px; /* Imagens ajustadas para um tamanho proporcional */
+    width: 50px;
+    height: 50px;
 }
+
 .footer {
     margin-top: 20px;
     font-size: 12px;
