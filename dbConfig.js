@@ -3,7 +3,7 @@ const db = mysql.createConnection({
 
     host: 'localhost',
     user: 'root',
-    password: 'root',
+    password: '29012005',
     database: 'medkit'
 });
 
