@@ -21,26 +21,37 @@ nav {
     top: 0;
 }
 
-nav h1 {
-    font-size: 24px;
+nav h2 {
+    font-size: 28px;
     font-weight: bold;
+    font-style: italic;
     margin: 0;
     flex: 1;
     text-align: center;
 }
 
-.container {
-    display: flex;
-    justify-content: space-between;
+.menu-container {
+    background-color: #87ceeb;
+    margin: 100px auto;
     padding: 20px;
-    margin-top: 20vh;
-    gap: 10px;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .menu-group {
     display: flex;
-    flex-direction: column;
     gap: 10px;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.menu-single {
+    display: flex;
+    justify-content: center;
 }
 
 .menu-item {
@@ -51,6 +62,10 @@ nav h1 {
     box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
     padding: 10px;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .menu-item img {
