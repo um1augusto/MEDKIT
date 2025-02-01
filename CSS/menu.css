@@ -66,6 +66,29 @@ nav h2 {
     justify-content: center;
 }
 
+/* Ajuste para remover sublinhado e manter o texto preto */
+.menu-single a {
+    text-decoration: none !important; /* Remove o sublinhado */
+    color: black !important; /* Mantém o texto preto */
+    font-weight: normal;
+}
+
+/* Mantém o texto preto mesmo após o clique */
+.menu-single a:visited {
+    color: black !important;
+}
+
+/* Faz com que toda a área do menu-item seja clicável */
+.menu-single a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+/* Estilização das imagens dentro dos itens */
 .menu-item img {
     width: 40px;
     height: 40px;
