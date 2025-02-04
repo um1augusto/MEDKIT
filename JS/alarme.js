@@ -1,4 +1,4 @@
-const token = localStorage.getItem("token"); // Pegando o token salvo após o login
+/*const token = localStorage.getItem("token"); // Pegando o token salvo após o login
 
 // Função para definir o alarme e salvar no banco de dados
 function setAlarm() {
@@ -56,4 +56,4 @@ function exibirAlarmes() {
 }
 
 // Atualiza a lista de alarmes ao carregar a página
-document.addEventListener("DOMContentLoaded", exibirAlarmes);
+document.addEventListener("DOMContentLoaded", exibirAlarmes);*/
