@@ -78,7 +78,37 @@ app.post('/login', async (req, res) => {
     });
 });
 
+/*app.post('/salvar-alarme', authenticateToken, (req, res) => {
+    const { horario, dias_semana, nome_remedio, som_alarme } = req.body;
+    const id_usuario = req.user.id; // Obtendo o ID do usuário autenticado
 
+    const query = `
+        INSERT INTO alarmes (id_usuario, horario, dias_semana, nome_remedio, som_alarme) 
+        VALUES (?, ?, ?, ?, ?)
+    `;
+
+    db.query(query, [id_usuario, horario, dias_semana, nome_remedio, som_alarme], (err, result) => {
+        if (err) {
+            console.error(err);
+            return res.status(500).json({ success: false, message: "Erro ao salvar alarme." });
+        }
+        res.status(201).json({ success: true, message: "Alarme salvo com sucesso!" });
+    });
+});
+
+app.get('/listar-alarmes', authenticateToken, (req, res) => {
+    const id_usuario = req.user.id; // Obtendo o ID do usuário autenticado
+
+    const query = SELECT id_alarme, horario, dias_semana, nome_remedio FROM alarmes WHERE id_usuario = ?;
+    
+    db.query(query, [id_usuario], (err, results) => {
+        if (err) {
+            console.error(err);
+            return res.status(500).json({ success: false, message: "Erro ao buscar alarmes." });
+        }
+        res.json(results);
+    });
+});*/
 
 app.listen(3000, () => {
     console.log('Servidor rodando na porta 3000');
