@@ -163,6 +163,28 @@ nav button {
     white-space: pre-line;
 }
 
+#alarm-container {
+    display: none;
+    background-color: #ffeb3b;
+    border: 2px solid #f57c00;
+    border-radius: 8px;
+    padding: 10px;
+    margin-top: 20px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    width: 80%;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#alarm-container.show-alarm {
+    display: block;
+}
+
+
 /* Ajustes para telas maiores */
 @media screen and (min-width: 768px) {
     .title {

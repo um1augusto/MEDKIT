@@ -1,59 +1,61 @@
-/*const token = localStorage.getItem("token"); // Pegando o token salvo após o login
+// Variável que armazenará o horário do alarme
+let alarmTime = null;
+const alarmSound = new Audio("../mp3/iphone_alarm.mp3"); // Caminho do som do alarme
 
-// Função para definir o alarme e salvar no banco de dados
-function setAlarm() {
-    const alarmInput = document.getElementById("alarm").value;
-    const inputRemedy = document.getElementById("remedy").value;
-    const diasSemana = "1234567"; // Defina os dias selecionados
-    const somAlarme = "default.mp3"; // Som do alarme padrão
+// Função que atualiza o relógio a cada segundo
+function updateClock() {
+    const now = new Date();
+    const hours = now.getHours().toString().padStart(2, '0');
+    const minutes = now.getMinutes().toString().padStart(2, '0');
+    const seconds = now.getSeconds().toString().padStart(2, '0');
 
-    if (alarmInput && inputRemedy) {
-        fetch("http://localhost:3000/salvar-alarme", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                "Authorization": Bearer ${token}
-            },
-            body: JSON.stringify({
-                horario: alarmInput,
-                dias_semana: diasSemana,
-                nome_remedio: inputRemedy,
-                som_alarme: somAlarme
-            })
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.success) {
-                exibirAlarmes(); // Atualiza a lista de alarmes
-            } else {
-                alert("Erro ao salvar: " + data.message);
-            }
-        });
-    } else {
-        alert("Preencha todos os campos!");
+    document.getElementById('clock').textContent = `${hours}:${minutes}:${seconds}`;
+
+    // Verifica se o horário do alarme coincide com o relógio
+    if (alarmTime && alarmTime === `${hours}:${minutes}` && seconds === "00") {
+        playAlarm();
     }
 }
 
-// Função para listar os alarmes salvos
-function exibirAlarmes() {
-    fetch("http://localhost:3000/listar-alarmes", {
-        method: "GET",
-        headers: {
-            "Authorization": Bearer ${token}
-        }
-    })
-    .then(response => response.json())
-    .then(alarmes => {
-        const lista = document.getElementById("lista-alarmes");
-        lista.innerHTML = ""; // Limpa a lista antes de atualizar
-
-        alarmes.forEach(alarme => {
-            const item = document.createElement("li");
-            item.innerHTML = <strong>${alarme.nome_remedio}</strong> - ${alarme.horario} - Dias: ${alarme.dias_semana};
-            lista.appendChild(item);
-        });
+// Função para tocar o alarme corretamente
+function playAlarm() {
+    alarmSound.play().catch(error => {
+        console.error("Erro ao reproduzir o áudio:", error);
+        alert("⚠️ O navegador bloqueou o áudio. Clique na tela antes de definir o alarme.");
     });
+
+    // Exibe a notificação na tela dentro do container de alarme
+    const alarmContainer = document.getElementById('alarm-container');
+    alarmContainer.classList.add("show-alarm");
 }
 
-// Atualiza a lista de alarmes ao carregar a página
-document.addEventListener("DOMContentLoaded", exibirAlarmes);*/
+// Função para definir o alarme e exibir o container
+function setAlarm() {
+    const alarmInput = document.getElementById('alarm').value;
+    const inputRemedy = document.getElementById('remedy').value;
+    const alarmContainer = document.getElementById('alarm-container');
+    const alarmInfo = document.getElementById('alarm-info');
+
+    if (alarmInput && inputRemedy) {
+        alarmTime = alarmInput.substring(0, 5);
+        
+        // Exibe os detalhes do alarme no container
+        alarmInfo.innerHTML = `
+            <p><strong>Remédio:</strong> ${inputRemedy}</p>
+            <p><strong>Horário:</strong> ${alarmTime}</p>
+        `;
+        alarmContainer.classList.add("show-alarm");
+    }
+}
+
+// Função para cancelar o alarme e esconder o container
+function cancelAlarm() {
+    alarmTime = null;
+    const alarmContainer = document.getElementById('alarm-container');
+    alarmContainer.classList.remove("show-alarm");
+    alarmSound.pause();
+    alarmSound.currentTime = 0;
+}
+
+// Atualiza o relógio a cada segundo
+setInterval(updateClock, 1000);
