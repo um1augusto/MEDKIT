@@ -1,0 +1,141 @@
+/* Estilo geral do corpo da página */
+body {
+    font-family: Arial, sans-serif; /* Define a fonte padrão */
+    margin: 0; /* Remove as margens padrão */
+    padding: 0; /* Remove o preenchimento padrão */
+    background-color: #f1f5f9; /* Define uma cor de fundo suave */
+    text-align: center; /* Centraliza o conteúdo */
+  }
+  
+  /* Estiliza a barra de navegação */
+  nav {
+    display: flex; /* Usa flexbox */
+    align-items: center; /* Alinha os itens verticalmente */
+    justify-content: center; /* Centraliza os itens */
+    background-color: #87ceeb; /* Cor de fundo azul claro */
+    color: black; /* Define a cor do texto */
+    padding: 30px 20px; /* Define o espaçamento interno */
+    border-bottom-left-radius: 150%; /* Arredonda a borda inferior esquerda */
+    border-bottom-right-radius: 150%; /* Arredonda a borda inferior direita */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adiciona sombra */
+    width: 100%; /* Define a largura total */
+    position: fixed; /* Mantém fixo no topo da página */
+    top: 0; /* Posiciona no topo */
+  }
+  
+  /* Estiliza o logotipo */
+  #logo {
+    flex: 1; /* Ocupa o espaço disponível */
+    display: flex; /* Usa flexbox */
+    justify-content: center; /* Centraliza o conteúdo horizontalmente */
+    align-items: center; /* Centraliza o conteúdo verticalmente */
+    font-size: 13px; /* Define o tamanho da fonte */
+  }
+  
+  #logo h1 {
+    font-size: 200%; /* Define o tamanho da fonte do título */
+    font-weight: bold; /* Define o texto como negrito */
+    margin: 0; /* Remove as margens padrão */
+  }
+  
+  /* Estiliza o botão de voltar */
+  #back {
+    position: absolute; /* Posicionamento absoluto */
+    left: 20px; /* Define um deslocamento para a esquerda */
+    display: flex; /* Usa flexbox */
+    justify-content: center; /* Centraliza o conteúdo horizontalmente */
+    align-items: center; /* Centraliza o conteúdo verticalmente */
+  }
+  
+  #back button {
+    background-color: transparent; /* Remove a cor de fundo */
+    border-radius: 50%; /* Torna o botão circular */
+    width: 35px; /* Define a largura */
+    height: 30px; /* Define a altura */
+    justify-content: center; /* Centraliza o conteúdo */
+    align-items: center; /* Centraliza o conteúdo */
+    cursor: pointer; /* Altera o cursor ao passar sobre o botão */
+    display: flex; /* Usa flexbox */
+  }
+  
+  #back img {
+    width: 50%; /* Define o tamanho da imagem */
+    height: auto; /* Mantém a proporção da imagem */
+    display: block; /* Garante que a imagem não tenha espaçamentos extras */
+    margin: 0; /* Remove margens */
+    position: absolute; /* Posiciona no centro do botão */
+    top: 50%; /* Move para 50% da altura */
+    left: 50%; /* Move para 50% da largura */
+    transform: translate(-50%, -50%); /* Centraliza corretamente */
+    cursor: pointer; /* Define cursor interativo */
+  }
+  
+  /* Estiliza o contêiner de vacinas (onde os dados serão exibidos) */
+  .containerVacina {
+    background-color: #b3e5fc; /* Cor de fundo azul claro */
+    padding: 16%; /* Espaçamento interno */
+    width: 24.3%; /* Largura definida */
+    margin: 0 auto 20px auto; /* Centraliza horizontalmente e adiciona margem inferior */
+    border-radius: 15px; /* Arredonda os cantos */
+    text-align: left; /* Alinha o texto à esquerda */
+    margin-top: 13%; /* Margem superior */
+    margin-left: 22%;
+  }
+  
+  /* Estiliza o formulário de cadastro */
+  .containerCadastro {
+    background-color: #b3e5fc; /* Cor de fundo azul claro */
+    padding: 20px; /* Espaçamento interno */
+    border-radius: 15px; /* Arredonda os cantos */
+    text-align: left; /* Alinha o texto à esquerda */
+    width: 51.5%; /* Largura definida */
+    margin: 0 auto; /* Centraliza horizontalmente */
+    margin-top: 4%; /* Margem superior */
+  }
+  
+  .containerCadastro h3 {
+    margin: 0 0 20px 0; /* Espaçamentos */
+    font-size: 18px; /* Tamanho da fonte */
+    text-align: center; /* Centraliza o texto */
+    font-weight: bold; /* Texto em negrito */
+  }
+  
+  .containerCadastro label {
+    display: block; /* Cada rótulo ocupa uma linha inteira */
+    font-size: 14px; /* Tamanho da fonte */
+    margin-bottom: 5px; /* Espaçamento inferior */
+  }
+  
+  .containerCadastro input {
+    width: calc(100% - 20px); /* Largura ajustada */
+    padding: 8px; /* Espaçamento interno */
+    margin-bottom: 15px; /* Espaçamento inferior */
+    border: 1px solid #ccc; /* Borda sutil */
+    border-radius: 5px; /* Arredonda os cantos */
+  }
+  
+  .containerCadastro button {
+    width: 100%; /* Largura total */
+    padding: 10px; /* Espaçamento interno */
+    background-color: #0288d1; /* Cor de fundo azul */
+    color: #fff; /* Cor do texto */
+    border: none; /* Remove a borda */
+    border-radius: 5px; /* Arredonda os cantos */
+    cursor: pointer; /* Cursor interativo */
+    font-size: 14px; /* Tamanho da fonte */
+  }
+  
+  .containerCadastro button:hover {
+    background-color: #0277bd; /* Cor ao passar o mouse */
+  }
+  
+  /* Estiliza cada item de vacina cadastrado */
+  .vacina-item {
+    background-color: #b3e5fc;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 8px;
+    text-align: left;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  }
+  
