@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Receitas</title>
+    <link rel="stylesheet" href="./CSS/receitas.css">
+</head>
+
+<body>
+    <nav>
+        <h2>MEDKIT</h2>
+    </nav>
+    <header>
+        <h1>Receitas</h1>
+    </header>
+    <div class="container">
+        <form id="receita-form" enctype="multipart/form-data">
+            <div class="input-group">
+                <label for="nome_medicamento">Nome do Medicamento:</label>
+                <input type="text" id="nome_medicamento" name="nome_medicamento" required>
+            </div>
+            <div class="input-group">
+                <label for="validade">Data da Validade:</label>
+                <input type="date" id="validade" name="validade" required>
+            </div>
+            <div class="input-group">
+                <label for="anexo-receita">Anexo da Receita:</label>
+                <input type="file" id="anexo-receita" name="anexo-receita" required>
+            </div>
+            <button type="submit">INCLUIR RECEITA</button>
+        </form>
+
+        <!-- Exibição da lista de receitas -->
+        <ul id="lista-receitas"></ul>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            carregarReceitas();  // Carregar receitas quando a página for carregada
+        // Envio do formulário de receita
+        document.getElementById('receita-form').addEventListener('submit', function (event) {
+            event.preventDefault();  // Previne o envio padrão do formulário
+
+            const nomeMedicamento = document.getElementById('nome_medicamento').value.trim();
+            const dataValidade = document.getElementById('validade').value;
+            const anexo = document.getElementById('anexo-receita').files[0];  // Obtém o arquivo enviado
+
+                // Buscar o token JWT armazenado no localStorage
+                const token = localStorage.getItem('token');            
+
+            if (nomeMedicamento && dataValidade && anexo) {
+                const formData = new FormData();
+                formData.append('nome_medicamento', nomeMedicamento);
+                formData.append('validade', dataValidade);
+                formData.append('anexo_receita', anexo);
+
+                fetch('http://localhost:3000/receitas', {
+                    method: 'POST',
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Authorization": `Bearer ${token}` // Adicionando o token no cabeçalho
+                    },
+                    body: JSON.stringify({ formData })
+                })
+                .then(response => response.json())
+                .then(() => {
+                    carregarReceitas();  // Atualiza a lista de receitas após o envio
+                    this.reset();  // Reseta o formulário
+                })
+                .catch(error => console.error('Erro ao salvar receita:', error));
+            }
+        });            
+        });
+
+        // Função para carregar e exibir as receitas na lista
+        function carregarReceitas() {
+            fetch('http://localhost:3000/receitas')
+                .then(response => response.json())
+                .then(data => {
+                    const listaReceitas = document.getElementById('lista-receitas');
+                    listaReceitas.innerHTML = '';  // Limpa a lista antes de adicionar novos itens
+
+                    data.forEach(item => {
+                        const li = document.createElement('li');
+                        
+                        // Adiciona a receita à lista sem o link para o anexo
+                        li.innerHTML = `
+                            Medicamento: ${item.nome_medicamento} <br>
+                            Validade: ${item.validade} <br>
+                        `;
+                        listaReceitas.appendChild(li);
+                    });
+                })
+                .catch(error => console.error('Erro ao carregar receitas:', error));
+        }
+    </script>
+</body>
+
+</html>

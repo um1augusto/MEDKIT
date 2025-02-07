@@ -78,6 +78,55 @@ app.post('/login', async (req, res) => {
     });
 });
 
+/*const uploadDir = path.join(__dirname, "uploads");
+if (!fs.existsSync(uploadDir)) {
+    fs.mkdirSync(uploadDir, { recursive: true });
+}
+
+// Endpoint para salvar receitas
+app.post("/receitas", (req, res) => {
+    const form = new formidable.IncomingForm(); 
+    form.uploadDir = uploadDir;  // Setar o diretório de upload
+    form.keepExtensions = true;  // Manter a extensão original do arquivo
+
+    form.parse(req, (err, fields, files) => {
+        if (err) {
+            console.error("Erro ao processar o arquivo:", err);
+            return res.status(500).send("Erro ao processar o arquivo.");
+        }
+
+        const { nome_medicamento, validade } = fields;
+        const anexo_receita = files.anexo_receita ? files.anexo_receita[0].newFilename : ''; // Obter o nome do arquivo
+
+        if (!nome_medicamento || !validade || !id_usuario) {
+            return res.status(400).send("Faltando dados obrigatórios.");
+        }
+
+        const id_usuario = req.user.id; // Usando o ID do usuário vindo do JWT
+
+        // Inserir dados no banco de dados MySQL
+        db.query("INSERT INTO receitas (id_usuario, nome_medicamento, validade, anexo_receita) VALUES (?, ?, ?, ?)", 
+            [id_usuario, nome_medicamento, validade, anexo_receita], 
+            (err, result) => {
+                if (err) {
+                    console.error("Erro ao inserir no banco:", err);
+                    return res.status(500).send("Erro ao salvar a receita.");
+                }
+                res.status(200).json({ message: "Receita salva com sucesso." });
+            });
+    });
+});
+
+app.get("/receitas", (req, res) => {
+    db.query("SELECT * FROM receitas", (err, results) => {
+        if (err) {
+            console.error("Erro ao carregar receitas:", err);
+            return res.status(500).send("Erro ao carregar receitas.");
+        }
+        res.status(200).json(results);
+    });
+});*/
+
 app.listen(3000, () => {
     console.log('Servidor rodando na porta 3000');
 });
