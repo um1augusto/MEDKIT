@@ -1,3 +1,4 @@
+/* Reset global: Define box-sizing, remove margens e paddings padrões e define a fonte base */
 * {
     box-sizing: border-box;
     padding: 0;
@@ -6,24 +7,25 @@
     font-family: Arial, sans-serif;
 }
 
+/* Estilização do corpo da página */
 body {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background-color: #f0f8ff;
-    margin: 0;
+    display: flex; /* Define um layout flexível */
+    flex-direction: column; /* Elementos organizados em coluna */
+    justify-content: center; /* Centraliza verticalmente */
+    align-items: center; /* Centraliza horizontalmente */
+    min-height: 100vh; /* Garante que o corpo ocupe toda a altura da tela */
+    background-color: #f0f8ff; /* Cor de fundo */
     padding: 20px;
 }
 
+/* Estilização da barra de navegação */
 nav {
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: #87ceeb;
     color: black;
-    padding: 30px 20px;
+    padding: 28px 20px;
     border-bottom-left-radius: 150%;
     border-bottom-right-radius: 150%;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -33,6 +35,7 @@ nav {
     margin-left: -50%;
 }
 
+/* Estilização do logotipo dentro da navbar */
 #logo {
     flex: 1;
     margin-left: 3%;
@@ -42,13 +45,14 @@ nav {
     font-size: 14px;
 }
 
+/* Ajuste do título dentro do logotipo */
 #logo h1 {
     font-size: 200%;
     font-weight: bold;
-    margin: 0;
     margin-right: 2%;
 }
 
+/* Botão de voltar */
 #back {
     position: absolute;
     left: 20px;
@@ -62,8 +66,6 @@ nav {
     border-radius: 50%;
     width: 35px;
     height: 30px;
-    justify-content: center;
-    align-items: center;
     cursor: pointer;
     display: flex;
     position: relative;
@@ -71,9 +73,6 @@ nav {
 
 #back img {
     width: 50%;
-    height: auto;
-    display: block;
-    margin: 0;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -81,12 +80,7 @@ nav {
     cursor: pointer;
 }
 
-nav button {
-    background-color: transparent;
-    display: flex;
-    cursor: pointer;
-}
-
+/* Container principal */
 .container {
     display: flex;
     flex-direction: column;
@@ -99,17 +93,19 @@ nav button {
     border-radius: 15px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     text-align: center;
-    margin-top: 4%;
+    margin-top: 6%;
 }
 
+/* Título da página */
 .title {
-    font-size: 0.9rem;
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
     font-weight: bold;
     text-align: center;
-    margin-top: 9%;
+    margin-top: 25%;
     color: #000;
 }
 
+/* Relógio */
 .clock {
     font-size: 1.5rem;
     font-weight: bold;
@@ -117,6 +113,7 @@ nav button {
     margin-top: 4%;
 }
 
+/* Campos de entrada */
 .container div {
     display: flex;
     flex-direction: column;
@@ -125,12 +122,14 @@ nav button {
     margin-bottom: 8px;
 }
 
+/* Labels dos campos */
 .container label {
     font-weight: bold;
     margin-bottom: 4px;
     color: #4682B4;
 }
 
+/* Inputs e textarea */
 .container input,
 .container textarea {
     width: 100%;
@@ -140,6 +139,7 @@ nav button {
     border-radius: 5px;
 }
 
+/* Botão de ação */
 .container button {
     width: 100%;
     padding: 8px;
@@ -151,10 +151,12 @@ nav button {
     cursor: pointer;
 }
 
+/* Efeito hover no botão */
 .container button:hover {
     background-color: #4169e1;
 }
 
+/* Mensagem de status */
 .message {
     margin-top: 8px;
     font-size: 0.9rem;
@@ -163,6 +165,7 @@ nav button {
     white-space: pre-line;
 }
 
+/* Container de alarmes */
 #alarm-container {
     display: none;
     background-color: #4682B4;
@@ -175,24 +178,23 @@ nav button {
     font-weight: bold;
     width: 80%;
     max-width: 400px;
-    margin-left: auto;
-    margin-right: auto;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 }
 
+/* Quando um alarme está ativo */
 #alarm-container.show-alarm {
     display: block;
 }
 
+/* Lista de alarmes */
 #alarm-list {
     margin-top: 20px;
     text-align: center;
     width: 80%;
     max-width: 400px;
-    margin-left: auto;
-    margin-right: auto;
 }
 
+/* Estilização de cada alarme */
 .alarm-item {
     background-color: #87ceeb;
     border: 2px solid #4682B4;
@@ -204,12 +206,13 @@ nav button {
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 }
 
+/* Quando um alarme está ativo */
 .alarm-active {
     background-color: #ee2727;
     color: white;
 }
 
-/* Estilos para a caixa de seleção personalizada */
+/* Estilos para a caixa de seleção */
 select {
     padding: 12px 20px;
     border-radius: 8px;
@@ -219,28 +222,15 @@ select {
     box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
     width: 100%;
     cursor: pointer;
-    appearance: none; /* Remove o estilo padrão do select */
+    appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
-    position: relative;
-}
-
-/* Adiciona o ícone de seta para baixo */
-select::after {
-    content: '▼';
-    position: absolute;
-    right: 15px;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 18px;
-    color: #4682B4;
 }
 
 /* Estilo quando o select estiver em foco */
 select:focus {
-    outline: none;
-    border-color: #4682b4; /* Muda a cor da borda quando o select estiver em foco */
-    box-shadow: 0 0 5px rgba(70, 130, 180, 0.3); /* Efeito de sombra */
+    border-color: #4682b4;
+    box-shadow: 0 0 5px rgba(70, 130, 180, 0.3);
 }
 
 /* Estilo para opções dentro do select */
@@ -256,4 +246,3 @@ select option {
 select option:hover {
     background-color: #87ceeb;
 }
-
