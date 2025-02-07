@@ -168,14 +168,14 @@ nav {
 }
 
 /* Responsividade para telas maiores */
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 500px) {
   .containerCadastro {
       width: 50%;
       margin-top: 5%;
   }
   .containerVacina {
-      margin-top: 15%;
-      padding: 15%;
-      width: 17.5%;
+      margin-top: 20vh;
+      padding: 8vh;
+      width: 15vh;
   }
 }
