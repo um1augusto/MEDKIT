@@ -168,7 +168,7 @@ nav {
 }
 
 /* Responsividade para telas maiores */
-@media screen and (min-width: 500px) {
+@media screen and (min-width: 100px) {
   .containerCadastro {
       width: 50%;
       margin-top: 5%;
