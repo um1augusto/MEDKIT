@@ -39,7 +39,7 @@ nav {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size:14px;
+    font-size: 14px;
 }
 
 #logo h1 {
@@ -55,7 +55,6 @@ nav {
     display: flex;
     justify-content: center;
     align-items: center;
-    
 }
 
 #back button {
@@ -68,7 +67,6 @@ nav {
     cursor: pointer;
     display: flex;
     position: relative;
-    cursor: pointer;
 }
 
 #back img {
@@ -119,7 +117,7 @@ nav button {
     margin-top: 4%;
 }
 
- .container div {
+.container div {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -130,9 +128,11 @@ nav button {
 .container label {
     font-weight: bold;
     margin-bottom: 4px;
+    color: #4682B4;
 }
 
-.container input {
+.container input,
+.container textarea {
     width: 100%;
     padding: 6px;
     margin-bottom: 8px;
@@ -152,14 +152,14 @@ nav button {
 }
 
 .container button:hover {
-    background-color: #4682B4;
+    background-color: #4169e1;
 }
 
 .message {
     margin-top: 8px;
     font-size: 0.9rem;
     font-weight: bold;
-    text-align:center;
+    text-align: center;
     white-space: pre-line;
 }
 
@@ -209,34 +209,51 @@ nav button {
     color: white;
 }
 
-
-/* Ajustes para telas maiores */
-@media screen and (min-width: 768px) {
-    .title {
-        font-size: 1.5rem;
-    }
-    
-    .clock {
-        font-size: 2rem;
-    }
-    
-    .container {
-        max-width: 400px;
-        padding: 20px;
-    }
-
-    #logo h1 {
-        font-size: 200%;
-    }
-
-    #back {
-        margin-left: 3%; 
-        margin-top: -1%;
-    }
-
-    nav {
-        padding: 35px 20px;
-        border-bottom-left-radius: 50%; 
-        border-bottom-right-radius: 50%;
-    }
+/* Estilos para a caixa de seleção personalizada */
+select {
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 16px;
+    background-color: #fff;
+    border: 1px solid #87ceeb;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    cursor: pointer;
+    appearance: none; /* Remove o estilo padrão do select */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    position: relative;
 }
+
+/* Adiciona o ícone de seta para baixo */
+select::after {
+    content: '▼';
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 18px;
+    color: #4682B4;
+}
+
+/* Estilo quando o select estiver em foco */
+select:focus {
+    outline: none;
+    border-color: #4682b4; /* Muda a cor da borda quando o select estiver em foco */
+    box-shadow: 0 0 5px rgba(70, 130, 180, 0.3); /* Efeito de sombra */
+}
+
+/* Estilo para opções dentro do select */
+select option {
+    padding: 12px 20px;
+    font-size: 16px;
+    background-color: #f0f4f8;
+    color: #555;
+    transition: background-color 0.3s ease;
+}
+
+/* Estilo ao passar o mouse sobre as opções */
+select option:hover {
+    background-color: #87ceeb;
+}
+

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Histórico do Paciente</title>
+    <link rel="stylesheet" href="../CSS/alergias.css">
+</head>
+<body>
+    <nav>
+        <h2>MEDKIT</h2>
+    </nav>
+    <header>
+        <h1>Alergias</h1>
+    </header>
+    <div class="container">
+        <form id="historico-form">
+            <div class="input-group">
+                <label for="tipo">Tipo de Alergia:</label>
+                <select id="tipo" name="tipo" required>
+                    <option value="Alimento">Alimento</option>
+                    <option value="Medicamento">Medicamento</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="descricao">Descrição:</label>
+                <textarea id="descricao" name="descricao" rows="3" required></textarea>
+            </div>
+            <button type="submit">SALVAR</button>
+        </form>
+        
+        <!-- Lista de Alergias Salvas -->
+        <div id="lista-alergias-container">
+            <ul id="lista-alergias"></ul>
+        </div>
+    </div>
+
+    <script src="../js/alergias.js"></script>
+</body>
+</html>
+
