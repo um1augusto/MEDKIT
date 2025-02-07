@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  
   <!-- Importação do arquivo CSS para estilização -->
   <link rel="stylesheet" href="../css/vacinas.css">
-
+  
   <!-- Importação do arquivo JavaScript com defer para aguardar o carregamento do DOM -->
   <script src="../js/vacinas.js" defer></script>
-
-  <title>Cadastro de Vacinas</title> <!-- Título da página -->
+  
+  <title>Cadastro de Vacinas</title>
 </head>
 <body>
 
@@ -21,7 +21,6 @@
       <div id="logo">
         <h1>VACINAS</h1>
       </div>
-
       <!-- Botão de voltar para o menu -->
       <div id="back">
         <a href="./menu.html" aria-label="Voltar para o menu">
@@ -35,21 +34,18 @@
 
   <!-- Contêiner para exibição de vacinas cadastradas -->
   <div class="containerVacina">
-    <!-- Os dados cadastrados serão inseridos aqui via JavaScript -->
+    <!-- Os itens serão inseridos dinamicamente aqui -->
   </div>
 
   <!-- Formulário de cadastro de vacinas -->
   <div class="containerCadastro">
     <h3>CADASTRO DE VACINAS</h3>
-
     <!-- Campo para inserir o nome da vacina -->
     <label for="vacina">Nome da Vacina</label>
     <input type="text" id="vacina" placeholder="Digite o nome da vacina">
-
     <!-- Campo para inserir a data da vacinação -->
     <label for="vacinacao">Data da Vacinação</label>
     <input type="date" id="vacinacao">
-
     <!-- Botão para confirmar o cadastro -->
     <button id="confirmar">CONFIRMAR</button>
   </div>
