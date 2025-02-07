@@ -1,155 +1,181 @@
 /* Estilo geral do corpo da página */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f1f5f9;
-    text-align: center;
-  }
-  
-  /* Estiliza a barra de navegação */
-  nav {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #87ceeb;
-    color: black;
-    padding: 30px 20px;
-    border-bottom-left-radius: 150%;
-    border-bottom-right-radius: 150%;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    position: fixed;
-    top: 0;
-  }
-  
-  /* Estiliza o logotipo */
-  #logo {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 13px;
-  }
-  
-  #logo h1 {
-    font-size: 200%;
-    font-weight: bold;
-    margin: 0;
-  }
-  
-  /* Estiliza o botão de voltar */
-  #back {
-    position: absolute;
-    left: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  #back button {
-    background-color: transparent;
-    border-radius: 50%;
-    width: 35px;
-    height: 30px;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    display: flex;
-  }
-  
-  #back img {
-    width: 50%;
-    height: auto;
-    display: block;
-    margin: 0;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    cursor: pointer;
-  }
-  
-  /* Estiliza o contêiner de vacinas */
-  .containerVacina {
-    background-color: #b3e5fc;
-    /* Aqui definimos: 5% para o topo e fundo, e 16% para os lados */
-    padding: 5% 16%;
-    width: 24.3%;
-    margin: 13% auto 20px auto;
-    border-radius: 15px;
-    text-align: left;
-    margin-left: 22%;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f1f5f9;
+  text-align: center;
 }
 
-  
-  /* Estiliza o formulário de cadastro */
+/* Barra de navegação fixa no topo */
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #87ceeb;
+  color: black;
+  padding: 30px 20px;
+  border-bottom-left-radius: 150%;
+  border-bottom-right-radius: 150%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  position: fixed;
+  top: 0;
+}
+
+/* Logotipo centralizado */
+#logo {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 13px;
+}
+
+#logo h1 {
+  font-size: 200%;
+  font-weight: bold;
+  margin: 0;
+  margin-right: 5%;
+}
+
+/* Botão de voltar */
+#back {
+  position: absolute;
+  left: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: -1.5%;
+}
+
+#back button {
+  background-color: transparent;
+  border-radius: 50%;
+  width: 35px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+#back img {
+  width: 50%;
+  height: auto;
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+}
+
+/* Contêiner de vacinas */
+.containerVacina {
+  background-color: #b3e5fc;
+  padding: 25%;
+  width: 44.5%;
+  max-width: 400px;
+  margin: 20px auto;
+  border-radius: 15px;
+  text-align: left;
+  margin-top: 35%;
+  max-height: 40px;
+  overflow-y: auto;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Contêiner de cadastro */
+.containerCadastro {
+  background-color: #b3e5fc;
+  padding: 20px;
+  border-radius: 15px;
+  text-align: left;
+  width: 80%;
+  max-width: 400px;
+  margin: 20px auto;
+  margin-top: -5%;
+}
+
+.containerCadastro h3 {
+  margin: 0 0 20px 0;
+  font-size: 18px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.containerCadastro label {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.containerCadastro input {
+  width: calc(100% - 20px);
+  padding: 8px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.containerCadastro button {
+  width: 100%;
+  padding: 10px;
+  background-color: #0288d1;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.containerCadastro button:hover {
+  background-color: #0277bd;
+}
+
+/* Estiliza cada item de vacina */
+.vacina-item {
+  background-color: #b3e5fc;
+  padding: 10px;
+  margin: 5px 0;
+  border-radius: 8px;
+  text-align: left;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  position: relative;
+  transition: transform 0.2s ease-in-out;
+}
+
+/* Efeito de elevação ao passar o mouse */
+.containerVacina:hover .vacina-item {
+  transform: translateY(-5px);
+}
+
+.containerVacina:hover {
+  overflow-y: scroll;
+}
+
+/* Botão de remover item */
+.remover-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  padding: 0;
+}
+
+/* Responsividade para telas maiores */
+@media screen and (min-width: 768px) {
   .containerCadastro {
-    background-color: #b3e5fc;
-    padding: 20px;
-    border-radius: 15px;
-    text-align: left;
-    width: 51.5%;
-    margin: 0 auto;
-    margin-top: 4%;
+      width: 50%;
+      margin-top: 5%;
   }
-  
-  .containerCadastro h3 {
-    margin: 0 0 20px 0;
-    font-size: 18px;
-    text-align: center;
-    font-weight: bold;
+  .containerVacina {
+      margin-top: 15%;
+      padding: 15%;
+      width: 17.5%;
   }
-  
-  .containerCadastro label {
-    display: block;
-    font-size: 14px;
-    margin-bottom: 5px;
-  }
-  
-  .containerCadastro input {
-    width: calc(100% - 20px);
-    padding: 8px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-  
-  .containerCadastro button {
-    width: 100%;
-    padding: 10px;
-    background-color: #0288d1;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 14px;
-  }
-  
-  .containerCadastro button:hover {
-    background-color: #0277bd;
-  }
-  
-  /* Estiliza cada item de vacina cadastrado */
-  .vacina-item {
-    background-color: #b3e5fc;
-    padding: 10px;
-    margin: 5px 0;
-    border-radius: 8px;
-    text-align: left;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
-    position: relative; /* Necessário para posicionar o botão de lixeira */
-  }
-  
-  /* Botão de lixeira */
-  .remover-btn {
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    font-size: 18px;  /* Tamanho pequeno */
-    position: absolute;
-    top: 5px;
-    right: 5px;
-    padding: 0;
-  }
-  
+}
