@@ -84,3 +84,40 @@ button {
 button:hover {
     background-color: #5a9bd5;
 }
+#back {
+    position: absolute;
+    left: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#back button {
+    background-color: transparent;
+    border-radius: 50%;
+    width: 35px;
+    height: 30px;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    display: flex;
+    position: relative;
+}
+
+#back img {
+    width: 50%;
+    height: auto;
+    display: block;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+}
+
+nav button {
+    background-color: transparent;
+    display: flex;
+    cursor: pointer;
+}

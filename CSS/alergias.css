@@ -118,35 +118,35 @@ input, select {
   }
 
   #back {
-    position: absolute;
-    left: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    position: absolute; /* Posiciona de forma absoluta */
+    left: 20px; /* Define um deslocamento para a esquerda */
+    display: flex; /* Usa flexbox */
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    margin-top: -3%;
 }
 
 #back button {
     background-color: transparent;
-    border-radius: 50%;
-    width: 35px;
-    height: 30px;
+    border: 2px solid #4682b4; /* Adiciona uma borda para formar o contorno */
+    border-radius: 50%; /* Torna o botão perfeitamente circular */
+    width: 35px; /* Largura do botão */
+    height: 30px; /* Altura igual à largura para manter o círculo */
+    display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    display: flex;
-    position: relative;
 }
 
 #back img {
-    width: 50%;
-    height: auto;
-    display: block;
-    margin: 0;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    cursor: pointer;
+        width: 50%;
+        height: auto;
+        display: block;
+        margin: 0;
+        position: absolute;
+        margin-top: 50%;
+        margin-left: 40%;
+        transform: translate(-50%, -50%);
 }
 
 nav button {
