@@ -12,14 +12,17 @@ function adicionarVacina() {
 
   // Verifica se os campos foram preenchidos
   if (nomeVacina && dataVacina) {
-    const vacinaId = Date.now(); // Identificador único
+    // Cria um identificador único para a vacina com base no timestamp atual
+    const vacinaId = Date.now(); 
+    // Cria um objeto com os dados da vacina
     const novaVacina = { id: vacinaId, nome: nomeVacina, data: dataVacina };
+    // Adiciona o objeto vacina ao array de vacinas
     vacinas.push(novaVacina);
 
-    // Cria o elemento para o item de vacina
+    // Cria o elemento para o item de vacina no HTML
     const vacinaItem = document.createElement("div");
     vacinaItem.classList.add("vacina-item");
-    vacinaItem.id = `vacina-${vacinaId}`;
+    vacinaItem.id = `vacina-${vacinaId}`; // Define um ID único para o item baseado no id da vacina
     
     // Cria o conteúdo com os dados da vacina
     vacinaItem.innerHTML = `
@@ -30,26 +33,28 @@ function adicionarVacina() {
     // Cria o botão de lixeira para remoção
     const btnRemover = document.createElement("button");
     btnRemover.classList.add("remover-btn");
-    // Utilizando emoji de lixeira. Você também pode usar uma imagem, se preferir.
+    // Utilizando emoji de lixeira como ícone. Você pode usar uma imagem, se preferir.
     btnRemover.innerHTML = "🗑️";
+    // Associa o evento de clique para remover a vacina
     btnRemover.addEventListener("click", () => {
-      // Remove o item do DOM
+      // Remove o item de vacina do DOM
       containerVacinas.removeChild(vacinaItem);
-      // Opcional: remove do array de vacinas
+      // Opcional: Remove a vacina do array de vacinas
       vacinas = vacinas.filter(vacina => vacina.id !== vacinaId);
     });
 
-    // Adiciona o botão de remoção ao item e, em seguida, o item ao container
+    // Adiciona o botão de remoção ao item de vacina e depois o item ao container
     vacinaItem.appendChild(btnRemover);
     containerVacinas.appendChild(vacinaItem);
 
-    // Limpa os campos do formulário
+    // Limpa os campos do formulário após adicionar a vacina
     document.getElementById("vacina").value = '';
     document.getElementById("vacinacao").value = '';
   } else {
+    // Exibe um alerta caso algum campo não tenha sido preenchido
     alert("Por favor, preencha todos os campos.");
   }
 }
 
-// Associa a função ao clique do botão CONFIRMAR
+// Associa a função 'adicionarVacina' ao clique do botão CONFIRMAR
 document.getElementById("confirmar").addEventListener("click", adicionarVacina);
